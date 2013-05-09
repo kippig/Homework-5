@@ -1,0 +1,17 @@
+#Part A: Fermat's little theorem
+n = 4654252230393111226989449826741007006486078009450861095070222439898324342353927553909251532232407850265642079868425916328810273416481567992145162141358151
+Mod(2,n)^(n-1)
+#returns 1631275335353718272688521136992205307778996921510751912836784958121590177271097904110560032076219875741821572502979807785676850802289166219856576501165317
+#therefore n is not prime, because gcd(2,n) = 1, so we can apply Fermat's little theorem contrapositive.
+
+#Part B: Factoring n
+
+## for some reason my code makes the types rings.arith which doesn't work with is_prime, so I convert them to sage Integers
+p = Integer(next_probable_prime(floor(sqrt(n)))); print 'p = ' + str(p)
+q = Integer(n/p) ; print 'q = ' + str(q)
+is_prime(q) and is_prime(p)
+#returns true
+if n == p*q:
+    print 'n indeed is p*q'
+
+
